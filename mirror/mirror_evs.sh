@@ -75,5 +75,5 @@ fi
 
 #### Transfer emc.vpppg parallel [$emcvpppg_para]; from dev to prod
 for STEP in $STEPS; do
-    echo rsync -ahr -P ${user_para}/${STEP}/${COMPONENT}/* ${other_transfer_host}:${user_para}/${STEP}/${COMPONENT}/.
+    rsync -ahr -P ${user_para}/${STEP}/${COMPONENT}/* ${other_transfer_host}:${user_para}/${STEP}/${COMPONENT}/.
 done
