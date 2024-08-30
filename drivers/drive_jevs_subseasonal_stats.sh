@@ -7,7 +7,7 @@
 set -x
 
 HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS
-STEP=prep
+STEP=stats
 COMPONENT=subseasonal
 
 now=$(date -u +%Y%m%d%H)
