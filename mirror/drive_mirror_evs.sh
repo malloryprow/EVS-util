@@ -18,5 +18,11 @@ COMPONENT=${1:-"component"}
 # Make and work in the log directory
 mkdir -p ${LOGSevs_util}
 
+# Make sure we got all our passed agrument
+if [ ${COMPONENT} = "component" ]; then
+    echo "ERROR: Did not pass EVS component"
+    exit 1
+fi
+
 # Submit to queue
 qsub -q "dev_transfer" -A "VERF-DEV" -S /bin/bash -N mirror_evs_${COMPONENT} -o ${LOGSevs_util}/log_mirror_evs_${COMPONENT}_run${now}.out -e ${LOGSevs_util}/log_mirror_evs_${COMPONENT}_run${now}.out -l walltime=06:00:00 -l select=1:ncpus=1 -l debug=true -v COMPONENT=${COMPONENT} ${HOMEevs_util}/mirror/mirror_evs.sh
