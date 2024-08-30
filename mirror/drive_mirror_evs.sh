@@ -20,7 +20,7 @@ mkdir -p ${LOGSevs_util}
 
 # Make sure we got all our passed agrument
 if [ ${COMPONENT} = "component" ]; then
-    echo "ERROR: Did not pass EVS component"
+    echo "ERROR: Did not pass COMPONENT"
     exit 1
 fi
 
