@@ -27,3 +27,4 @@ g2o_obs="argo ndbc"
 for obs in ${g2o_obs}; do
     qsub ${drivers_dir}/jevs_rtofs_${obs}_grid2obs_last60days_plots.sh
 done
+qsub ${drivers_dir}/jevs_rtofs_headline_grid2grid_last90days_plots.sh
