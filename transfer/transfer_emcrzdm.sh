@@ -36,7 +36,7 @@ echo "Transfering ${user_para}/plots/${COMPONENT}/${RUN}.${VDATE}/*.tar to ${COM
 rsync -ahr -P ${user_para}/plots/${COMPONENT}/${RUN}.${VDATE}/*.tar ${webhost_id}@${webhost}:${COMPONENT_RUN_VDATE_web_dir}/.
 
 #### Remove old directories
-rm_VDATE=$($NDATE -48 ${VDATE}00 |cut -c1-8)
+rm_VDATE=$($NDATE -120 ${VDATE}00 |cut -c1-8)
 COMPONENT_RUN_rm_VDATE_web_dir=${emcrzdm_dir}/${COMPONENT}/${RUN}.${rm_VDATE}
 echo "Removing ${COMPONENT_RUN_rm_VDATE_web_dir} on ${webhost}"
 ssh -q -l ${webhost_id} ${webhost} "rm -r ${COMPONENT_RUN_rm_VDATE_web_dir}"
