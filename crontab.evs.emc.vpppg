@@ -131,8 +131,8 @@
 ##########################
 #### glwu
 ##########################
-30 12 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/drivers/drive_jevs_glwu_prep.sh 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_jevs_glwu_prep.out 2>&1
-30 13 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/mirror/drive_mirror_evs.sh glwu 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_mirror_evs_glwu.out 2>&1
+30 14 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/drivers/drive_jevs_glwu_prep.sh 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_jevs_glwu_prep.out 2>&1
+30 15 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/mirror/drive_mirror_evs.sh glwu 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_mirror_evs_glwu.out 2>&1
 ##########################
 #### hurricane
 ##########################
