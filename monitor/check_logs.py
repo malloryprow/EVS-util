@@ -38,7 +38,8 @@ grep_keyword_list = [
     'ERROR', 'Error', 'error', 'FAIL', 'Fail', 'fail',
     'WARNING', 'No such file', 'exceeded', 'too many arguments',
     'command not found', 'argument expected', 'mv: cannot stat',
-    'exited with code', 'unexpected']
+    'exited with code', 'unexpected'
+]
 for log in PDYm1_log_list:
     for grep_keyword in grep_keyword_list:
         if grep_keyword == 'ERROR':
