@@ -38,7 +38,7 @@ grep_keyword_list = [
     'ERROR', 'Error', 'error', 'FAIL', 'Fail', 'fail',
     'WARNING', 'No such file', 'exceeded', 'too many arguments',
     'command not found', 'argument expected', 'mv: cannot stat',
-    'exited with code']
+    'exited with code', 'unexpected']
 for log in PDYm1_log_list:
     for grep_keyword in grep_keyword_list:
         if grep_keyword == 'ERROR':
@@ -66,5 +66,4 @@ for log in PDYm1_log_list:
         if grep_keyword_log_output != '':
             print(f"{log} contains {grep_keyword}")
             PDYm1_report.write(f"{log} contains {grep_keyword}\n")
-    print("\n")
 PDYm1_report.close()
