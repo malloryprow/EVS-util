@@ -47,7 +47,7 @@ elif [ $run_job == chem_grid2obs_airnow ]; then
     fi
     qsub -v vhr=$run_vhr ${drivers_dir}/jevs_global_ens_gefs_${run_job}_stats.sh
 elif [ $run_job == chem_grid2obs_aeronet ]; then
-    run_vhr=$(($vhr-2))
+    run_vhr=$((${vhr#0}-2))
     if [ $run_vhr -lt 10 ]; then
         run_vhr=0${run_vhr}
     fi
