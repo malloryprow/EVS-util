@@ -6,7 +6,7 @@
 
 set -x
 
-HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS
+HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS_beta5
 STEP=prep
 COMPONENT=global_ens
 
