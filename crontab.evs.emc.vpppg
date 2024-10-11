@@ -175,6 +175,8 @@
 ##########################
 #### nwps
 ##########################
+45 12 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/drivers/drive_jevs_nwps_prep.sh 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_jevs_nwps_prep.out 2>&1
+15 15 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/drivers/drive_jevs_nwps_stats.sh 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_jevs_nwps_stats.out 2>&1
 ##########################
 #### rtofs
 ##########################
