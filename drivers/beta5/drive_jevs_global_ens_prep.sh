@@ -13,8 +13,8 @@ COMPONENT=global_ens
 now=$(date -u +%Y%m%d%H)
 vhr=$(echo $now | cut -c 9-10)
 
-mkdir -p /lfs/h2/emc/ptmp/${USER}/output
-cd /lfs/h2/emc/ptmp/${USER}/output
+mkdir -p /lfs/h2/emc/ptmp/${USER}/output_beta5
+cd /lfs/h2/emc/ptmp/${USER}/output_beta5
 
 module reset
 
