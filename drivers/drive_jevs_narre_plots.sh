@@ -19,5 +19,5 @@ cd /lfs/h2/emc/ptmp/${USER}/output
 module reset
 
 drivers_dir=${HOMEevs}/dev/drivers/scripts/${STEP}/${COMPONENT}
-qsub ${drivers_dir}/jevs_narre_past31days_plots.sh
-qsub ${drivers_dir}/jevs_narre_past90days_plots.sh
+qsub ${drivers_dir}/jevs_narre_last31days_plots.sh
+qsub ${drivers_dir}/jevs_narre_last90days_plots.sh
