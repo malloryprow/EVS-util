@@ -16,7 +16,6 @@ COMPONENT=${1:-${COMPONENT:-"component"}}
 
 # EVS Output Info
 user_para=/lfs/h2/emc/vpppg/noscrub/${USER}/evs/v2.0
-beta5_para=/lfs/h2/emc/vpppg/noscrub/${USER}/evs_beta5/v2.0
 
 # Machine Info
 #### Production Machine
@@ -81,8 +80,4 @@ fi
 #### Transfer emc.vpppg parallel [$user_para]; from dev to prod
 for STEP in $STEPS; do
     rsync -ahr -P ${user_para}/${STEP}/${COMPONENT}/* ${other_transfer_host}:${user_para}/${STEP}/${COMPONENT}/.
-done
-#### Transfer emc.vpppg beta5 parallel [$beta5_para]; from dev to prod
-for STEP in $STEPS; do
-    rsync -ahr -P ${beta5_para}/${STEP}/${COMPONENT}/* ${other_transfer_host}:${beta5_para}/${STEP}/${COMPONENT}/.
 done
