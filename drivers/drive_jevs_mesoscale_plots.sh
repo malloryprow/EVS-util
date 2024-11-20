@@ -27,7 +27,7 @@ elif [ $subcomponent_job == ens ]; then
     if [ $plots_job == all ]; then
         verif_cases="grid2obs precip cnv cape cloud td2m"
         for verif_case in ${verif_cases}; do
-            qsub ${drivers_dir}/jevs_mesoscale_sref_${verif_case}_past90days_plots.sh
+            qsub ${drivers_dir}/jevs_mesoscale_sref_${verif_case}_last90days_plots.sh
         done
         qsub ${drivers_dir}/jevs_mesoscale_sref_precip_spatial_plots.sh
     fi
