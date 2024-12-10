@@ -53,7 +53,7 @@ if check_warnings:
         grep_keyword_list
         + ['WARNING', 'Warning', 'warning']
     )
-for log in PDYm1_log_list[:75]:
+for log in PDYm1_log_list:
     log_grep_keywords = []
     for grep_keyword in grep_keyword_list:
         if grep_keyword == 'ERROR':
