@@ -10,7 +10,7 @@ PDYm1_dt = PDY_dt - datetime.timedelta(days=1)
 # Settings
 check_warnings = False
 write_report = True
-send_mail = True
+send_mail = False
 
 ### Set up locations
 monitor_reports_dir = f"/lfs/h2/emc/stmp/{os.environ['USER']}/monitor_evs"
