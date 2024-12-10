@@ -10,6 +10,7 @@ PDYm1_dt = PDY_dt - datetime.timedelta(days=1)
 # Settings
 check_warnings = False
 write_report = True
+send_mail = True
 
 ### Set up locations
 monitor_reports_dir = f"/lfs/h2/emc/stmp/{os.environ['USER']}/monitor_evs"
@@ -52,7 +53,7 @@ if check_warnings:
         grep_keyword_list
         + ['WARNING', 'Warning', 'warning']
     )
-for log in PDYm1_log_list:
+for log in PDYm1_log_list[:75]:
     log_grep_keywords = []
     for grep_keyword in grep_keyword_list:
         if grep_keyword == 'ERROR':
@@ -82,8 +83,20 @@ for log in PDYm1_log_list:
         if grep_keyword_log_output != '':
             log_grep_keywords.append(grep_keyword)
     if len(log_grep_keywords) != 0:
-        print(f"{log} contains: {', '.join(log_grep_keywords)}")
+        report_statement = f"{log} contains: {', '.join(log_grep_keywords)}"
+        print(report_statement)
         if write_report:
-            PDYm1_report.write(f"{log} contains {grep_keyword}\n")
+            PDYm1_report.write(report_statement+'\n')
 if write_report:
     PDYm1_report.close()
+
+if send_mail and write_report:
+    maillist = f"{os.environ['USER']}@noaa.gov"
+    subject = f"emc.vpppg EVS Parallel Monitoring Report for {PDYm1_dt:%Y%m%d}"
+    print(f"\nSending report to {maillist}")
+    ps = subprocess.Popen(
+        f"cat {PDYm1_report_file} | mail -s "
+        +f'"{subject}" {maillist}',
+        shell=True, stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT, encoding='UTF-8'
+    )
