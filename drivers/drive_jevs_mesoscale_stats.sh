@@ -27,5 +27,11 @@ if [ $subcomponent_job == det ]; then
         qsub -v vhr=$vhr ${drivers_dir}/jevs_mesoscale_${model}_${stats_job}_stats.sh
     done
 elif [ $subcomponent_job == ens ]; then
-    qsub ${drivers_dir}/jevs_mesoscale_sref_${stats_job}_stats.sh
+    if [ ${stats_job} == all ]; then
+        for all_job in grid2obs precip; do
+            qsub ${drivers_dir}/jevs_mesoscale_sref_${all_job}_stats.sh
+        done
+    else
+        qsub ${drivers_dir}/jevs_mesoscale_sref_${stats_job}_stats.sh
+    fi
 fi

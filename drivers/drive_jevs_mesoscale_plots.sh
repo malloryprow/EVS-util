@@ -22,7 +22,12 @@ drivers_dir=${HOMEevs}/dev/drivers/scripts/${STEP}/${COMPONENT}
 subcomponent_job=$1
 plots_job=$2
 if [ $subcomponent_job == det ]; then
-    qsub -v vhr=$vhr ${drivers_dir}/jevs_mesoscale_${plots_job}_plots.sh
+    if [ ${plots_job} == precip ]; then
+        run_vhr=$(($vhr-1))
+    else
+        run_vhr=${vhr}
+    fi
+    qsub -v vhr=$run_vhr ${drivers_dir}/jevs_mesoscale_${plots_job}_plots.sh
 elif [ $subcomponent_job == ens ]; then
     if [ $plots_job == all ]; then
         verif_cases="grid2obs precip cnv cape cloud td2m"

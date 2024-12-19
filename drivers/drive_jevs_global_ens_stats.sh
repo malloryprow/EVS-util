@@ -21,8 +21,9 @@ module reset
 drivers_dir=${HOMEevs}/dev/drivers/scripts/${STEP}/${COMPONENT}
 run_job=$1
 if [ $run_job == atmos ]; then
-    verif_cases="grid2grid grid2obs precip snowfall sst sea_ice cnv"
-    for verif_case in ${verif_cases}; do
+    model=$2
+    verif_case=$3
+    if [ $model == all ]; then
         if [ $verif_case = snowfall ]; then
             models="gefs cmce ecme"
         elif [ $verif_case = sst -o $verif_case = sea_ice -o $verif_case = cnv ]; then
@@ -30,13 +31,21 @@ if [ $run_job == atmos ]; then
         elif [ $verif_case = grid2grid -o $verif_case = grid2obs -o $verif_case = precip ]; then
             models="gefs cmce ecme naefs"
         fi
-        for model in ${models}; do
-            qsub ${drivers_dir}/jevs_global_ens_${model}_atmos_${verif_case}_stats.sh
-        done
+    else
+        models=${model}
+    fi
+    for run_model in ${models}; do
+        qsub ${drivers_dir}/jevs_global_ens_${run_model}_atmos_${verif_case}_stats.sh
     done
 elif [ $run_job == atmos_headline ]; then
-    for model in gfs gefs naefs; do
-        qsub ${drivers_dir}/jevs_global_ens_${model}_headline_grid2grid_stats.sh
+    model=$2
+    if [ $model == all ]; then
+        models="gfs gefs naefs"
+    else
+        models=${model}
+    fi
+    for run_model in ${models}; do
+        qsub ${drivers_dir}/jevs_global_ens_${run_model}_headline_grid2grid_stats.sh
     done
 elif [ $run_job == wave ]; then
     qsub ${drivers_dir}/jevs_global_ens_wave_grid2obs_stats.sh
