@@ -74,8 +74,7 @@
 #### atmos
 #################
 10 18 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/drivers/drive_jevs_global_det_prep.sh atmos 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_jevs_global_det_prep_atmos.out 2>&1
-45 18 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/drivers/drive_jevs_global_det_stats.sh atmos grid2grid 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_jevs_global_de
-t_stats_atmos_grid2grid.out 2>&1
+45 18 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/drivers/drive_jevs_global_det_stats.sh atmos grid2grid 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_jevs_global_det_stats_atmos_grid2grid.out 2>&1
 45 18 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/drivers/drive_jevs_global_det_stats.sh atmos grid2obs 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_jevs_global_det_stats_atmos_grid2obs.out 2>&1
 45 18 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/drivers/drive_jevs_global_det_stats.sh atmos wmo_daily 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_jevs_global_det_stats_atmos_wmo_daily.out 2>&1
 15 20 * * * /lfs/h2/emc/vpppg/noscrub/emc.vpppg/EVS-util/drivers/drive_jevs_global_det_stats.sh atmos wmo_monthly 1>/u/emc.vpppg/cron_jobs/logs/evs-util/drive_jevs_global_det_stats_atmos_wmo_monthly.out 2>&1
